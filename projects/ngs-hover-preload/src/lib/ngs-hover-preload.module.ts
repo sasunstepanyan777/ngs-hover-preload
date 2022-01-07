@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
-import { PreloadOnHoverDirective } from './preload-on-hover.directive';
+import { NgsPreloadOnHoverDirective } from './ngs-preload-on-hover.directive';
 
 @NgModule({
-  declarations: [PreloadOnHoverDirective],
+  declarations: [NgsPreloadOnHoverDirective],
   imports: [],
-  exports: [PreloadOnHoverDirective],
+  exports: [NgsPreloadOnHoverDirective],
 })
 export class NgsHoverPreloadModule {}
