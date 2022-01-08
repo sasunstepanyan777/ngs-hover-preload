@@ -1,24 +1,57 @@
-# NgsHoverPreload
+# ngs-hover-preload
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.0.
+This package provides a `PreloadingStrategy`, which will preload a lazy-loaded route on mouse over a corresponding router link.
 
-## Code scaffolding
+## Usage
 
-Run `ng generate component component-name --project ngs-hover-preload` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngs-hover-preload`.
-> Note: Don't forget to add `--project ngs-hover-preload` or else it will be added to the default project in your `angular.json` file. 
+Install the module:
 
-## Build
+```
+npm i ngs-hover-preload
+```
 
-Run `ng build ngs-hover-preload` to build the project. The build artifacts will be stored in the `dist/` directory.
+Import the `NgsHoverPreloadModule` in your `AppModule` and your lazy-loaded modules to ensure the required directives are available:
 
-## Publishing
+```ts
+// ...
+import { NgsHoverPreloadModule } from "ngs-hover-preload";
 
-After building your library with `ng build ngs-hover-preload`, go to the dist folder `cd dist/ngs-hover-preload` and run `npm publish`.
+@NgModule({
+  declarations: [
+    // ...
+  ],
+  imports: [
+    // ...
+    NgsHoverPreloadModule,
+  ],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+```
 
-## Running unit tests
+Add `ngsPreloadOnHover` directive to all your `routerLink`s with the value of the link:
 
-Run `ng test ngs-hover-preload` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```html
+<a routerLink="feature1" ngsPreloadOnHover="feature1">Feature1</a>
+```
 
-## Further help
+Don't forget to set the `NgsHoverPreloadStrategy` as your `preloadStrategy`:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```ts
+// ...
+import { NgsHoverPreloadStrategy } from "ngs-hover-preload";
+
+@NgModule({
+  // ...
+  imports: [
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: NgsHoverPreloadStrategy,
+    }),
+  ],
+})
+export class AppModule {} // or AppRoutingModule
+```
+
+## License
+
+MIT
