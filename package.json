@@ -5,7 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:lib": "ng build ngs-hover-preload --configuration development",
+    "build:lib:watch": "ng build ngs-hover-preload --configuration development",
+    "build:lib": "ng build ngs-hover-preload",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
