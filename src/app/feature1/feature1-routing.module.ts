@@ -8,6 +8,13 @@ const routes: Routes = [
     path: '',
     component: Feature1Component,
   },
+  {
+    path: 'feature-nested',
+    loadChildren: () =>
+      import('./feature-nested/feature-nested.module').then(
+        (m) => m.FeatureNestedModule
+      ),
+  },
 ];
 
 @NgModule({

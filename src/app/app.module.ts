@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, NgsHoverPreloadModule],
+  imports: [BrowserModule, AppRoutingModule, NgsHoverPreloadModule.forRoot()],
   providers: [],
   bootstrap: [AppComponent],
 })

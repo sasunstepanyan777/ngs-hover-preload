@@ -5,9 +5,7 @@ import { mergeMap } from 'rxjs/operators';
 
 import { NgsHoverPreloadService } from './ngs-hover-preload.service';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class NgsHoverPreloadStrategy extends PreloadingStrategy {
   constructor(private readonly ngsHoverPreloadService: NgsHoverPreloadService) {
     super();

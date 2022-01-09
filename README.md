@@ -10,7 +10,7 @@ Install the module:
 npm i ngs-hover-preload
 ```
 
-Import the `NgsHoverPreloadModule` in your `AppModule` and your lazy-loaded modules to ensure the required directives are available:
+Add `NgsHoverPreloadModule.forRoot()` in your `AppModule` and `NgsHoverPreloadModule.forChild()` in your lazy-loaded modules to ensure the required directives are available:
 
 ```ts
 // ...
@@ -22,11 +22,27 @@ import { NgsHoverPreloadModule } from "ngs-hover-preload";
   ],
   imports: [
     // ...
-    NgsHoverPreloadModule,
+    NgsHoverPreloadModule.forRoot(),
   ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+```
+
+```ts
+// ...
+import { NgsHoverPreloadModule } from "ngs-hover-preload";
+
+@NgModule({
+  declarations: [
+    // ...
+  ],
+  imports: [
+    // ...
+    NgsHoverPreloadModule.forChild(),
+  ],
+})
+export class FeatureModule {}
 ```
 
 Add `ngsPreloadOnHover` directive to all your `routerLink`s with the value of the link:
